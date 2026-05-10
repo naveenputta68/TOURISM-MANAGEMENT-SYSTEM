@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book a Tour</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Book a Tour</h1>
+        <form method='POST'>
+            <input type='text' name='name' placeholder="Your Name" required><br>
+            <input type='email' name='email' placeholder="Your Email" required><br>
+            <select name='tour_id'>
+                {% for tour in tours %}
+                <option value='{{ tour[0] }}'>{{ tour[1] }} - {{ tour[2] }}</option>
+                {% endfor %}
+            </select>
+            <button type='submit'>Book Tour</button>
+        </form>
+    </div>
+</body>
+</html>
